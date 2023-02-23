@@ -1,6 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:btcturk_training/src/screens/main/components/FeedList.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+
+
+//COMPONENTS
+import 'package:btcturk_training/src/widgets/btc_turk_logo.dart';
+import 'package:btcturk_training/src/screens/main/components/CategoryList.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -11,11 +15,26 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [],
+        children: const [
+          BtcTurkLogo(),
+          SizedBox(
+            height: 30.0,
+          ),
+          CategoryList(),
+        SizedBox(
+            height: 30.0,
+          ),
+         FeedList()
+          
+        ],
       ),
     );
   }

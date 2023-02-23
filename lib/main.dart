@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import 'src/screens/category/CategoryScreen.dart';
 import 'src/screens/detail/DetailScreen.dart';
+import 'src/screens/navigation/BottomNavigationBar.dart';
 
 Future<void> main() async {
   await init();
@@ -77,7 +78,7 @@ class __materialAppState extends State<_materialApp>
       debugShowCheckedModeBanner: false,
       title: 'BTC TURK',
       routes: {
-        "/": (BuildContext context) => const MainScreen(),
+        "/": (BuildContext context) => const BtcBottomNavigationBar(),
         "/Main": (BuildContext context) => const MainScreen(),
         "/Category": (BuildContext context) => const CategoryScreen(),
         "/Detail": (BuildContext context) => const DetailScreen(),
