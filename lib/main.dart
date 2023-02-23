@@ -1,80 +1,90 @@
+import 'package:btcturk_training/src/screens/main/MainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:sizer/sizer.dart';
+
+import 'src/screens/category/CategoryScreen.dart';
+import 'src/screens/detail/DetailScreen.dart';
 
 Future<void> main() async {
   await init();
-  runApp(const MyApp());
+  runApp(const BtcApp());
 }
 
 Future<void> init() async {
   await dotenv.load(fileName: ".env");
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class BtcApp extends StatelessWidget {
+  const BtcApp({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return Sizer(builder: ((context, orientation, deviceType) {
+      return const _materialApp();
+    }));
+  }
+}
+
+class _materialApp extends StatefulWidget {
+  const _materialApp({super.key});
+
+  @override
+  State<_materialApp> createState() => __materialAppState();
+}
+
+class __materialAppState extends State<_materialApp>
+    with WidgetsBindingObserver {
   // This widget is the root of your application.
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+
+    super.dispose();
+  }
+
+  @override
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    if (state == AppLifecycleState.inactive) {
+      //print('inactive');
+
+    }
+
+    if (state == AppLifecycleState.paused) {
+      //print(" altta atıldı");
+
+    }
+
+    if (state == AppLifecycleState.resumed) {}
+
+    if (state == AppLifecycleState.detached) {
+      //print('detached');
+
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'BTC TURK',
+      routes: {
+        "/": (BuildContext context) => const MainScreen(),
+        "/Main": (BuildContext context) => const MainScreen(),
+        "/Category": (BuildContext context) => const CategoryScreen(),
+        "/Detail": (BuildContext context) => const DetailScreen(),
+      },
       theme: ThemeData(
-    
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
- 
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-      
-        title: Text(widget.title),
-      ),
-      body: Center(
-     
-        child: Column(
-  
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
     );
   }
 }
