@@ -42,6 +42,9 @@ dependencies:
   flutter_svg: ^1.1.6
   http: ^0.13.5
   dot_navigation_bar: ^1.0.1+4
+  dotted_border: ^2.0.0+3
+  flutter_bloc: ^8.1.2
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -84,11 +87,38 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: Inter-Black
+      fonts:
+        - asset: fonts/Inter-Black.ttf
+    - family: Inter-Bold
+      fonts:
+        - asset: fonts/Inter-Bold.ttf
+    - family: Inter-ExtraBold
+      fonts:
+        - asset: fonts/Inter-ExtraBold.ttf
+    - family: Inter-ExtraLight
+      fonts:
+        - asset: fonts/Inter-ExtraLight.ttf
+    - family: Inter-Light
+      fonts:
+        - asset: fonts/Inter-Light.ttf
+    - family: Inter-Medium
+      fonts:
+        - asset: fonts/Inter-Medium.ttf
+    - family: Inter-Regular
+      fonts:
+        - asset: fonts/Inter-Regular.ttf
+    - family: Inter-SemiBold
+      fonts:
+        - asset: fonts/Inter-SemiBold.ttf
+    - family: Inter-Thin
+      fonts:
+        - asset: fonts/Schyler-Thin.ttf
+  
+      
+
+  #       - asset: fonts/Inter-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

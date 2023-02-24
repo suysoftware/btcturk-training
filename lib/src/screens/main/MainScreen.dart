@@ -1,7 +1,6 @@
 import 'package:btcturk_training/src/screens/main/components/FeedList.dart';
 import 'package:flutter/material.dart';
 
-
 //COMPONENTS
 import 'package:btcturk_training/src/widgets/btc_turk_logo.dart';
 import 'package:btcturk_training/src/screens/main/components/CategoryList.dart';
@@ -29,11 +28,10 @@ class _MainScreenState extends State<MainScreen> {
             height: 30.0,
           ),
           CategoryList(),
-        SizedBox(
+          SizedBox(
             height: 30.0,
           ),
-         FeedList()
-          
+          FeedList()
         ],
       ),
     );

@@ -1,11 +1,12 @@
+import 'package:btcturk_training/src/bloc/CategoryFilterLinkCubit.dart';
 import 'package:btcturk_training/src/screens/main/MainScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:sizer/sizer.dart';
 
-import 'src/screens/category/CategoryScreen.dart';
+import 'src/screens/source_page/SourceScreen.dart';
 import 'src/screens/detail/DetailScreen.dart';
-import 'src/screens/navigation/BottomNavigationBar.dart';
 
 Future<void> main() async {
   await init();
@@ -22,7 +23,11 @@ class BtcApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: ((context, orientation, deviceType) {
-      return const _materialApp();
+      return MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => CategoryFilterLinkCubit(),
+        ),
+      ], child: const _materialApp());
     }));
   }
 }
@@ -78,10 +83,14 @@ class __materialAppState extends State<_materialApp>
       debugShowCheckedModeBanner: false,
       title: 'BTC TURK',
       routes: {
-        "/": (BuildContext context) => const BtcBottomNavigationBar(),
+        "/": (BuildContext context) => const MainScreen(),
         "/Main": (BuildContext context) => const MainScreen(),
-        "/Category": (BuildContext context) => const CategoryScreen(),
-        "/Detail": (BuildContext context) => const DetailScreen(),
+        "/Source": (BuildContext context) => SourceScreen(
+              sourceName: ModalRoute.of(context)!.settings.arguments as dynamic,
+            ),
+        "/Detail": (BuildContext context) => DetailScreen(
+              article: ModalRoute.of(context)!.settings.arguments as dynamic,
+            ),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
