@@ -20,9 +20,9 @@ class ImageBorderWidget extends StatelessWidget {
         child: SizedBox.fromSize(
           size: Size.fromHeight(227.85),
           child: Image.network(
-            article.urlToImage!,
-            fit: BoxFit.cover,
-          ),
+                article.urlToImage!,
+                fit: BoxFit.cover,
+              ),
         ),
       ),
     );

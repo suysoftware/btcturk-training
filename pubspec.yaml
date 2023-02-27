@@ -114,7 +114,7 @@ flutter:
         - asset: fonts/Inter-SemiBold.ttf
     - family: Inter-Thin
       fonts:
-        - asset: fonts/Schyler-Thin.ttf
+        - asset: fonts/Inter-Thin.ttf
   
       
 

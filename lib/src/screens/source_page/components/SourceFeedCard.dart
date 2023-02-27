@@ -74,7 +74,7 @@ class _SourceFeedCardState extends State<SourceFeedCard> {
             height: 15.0,
           ),
           feedResourceTextBuild(
-            widget.article.title.toString().substring(0, 15),
+            widget.article.title.toString().substring(0, 7),
           ),
         ],
       ),

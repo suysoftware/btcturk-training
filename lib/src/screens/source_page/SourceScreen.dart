@@ -153,11 +153,16 @@ class _SourceScreenState extends State<SourceScreen> {
 
   Widget corouselSliderBuild(List<Article> slideArticleList) {
     return CarouselSlider(
-        items: [
-          ImageBorderWidget(article: slideArticleList[0]),
+        items: [...slideArticleList.map((e) => ImageBorderWidget(article: e))]
+
+      ,
+        
+        
+     /*  [
+         ImageBorderWidget(article: slideArticleList[0]),
           ImageBorderWidget(article: slideArticleList[1]),
           ImageBorderWidget(article: slideArticleList[2])
-        ],
+        ],*/
         carouselController: _controller,
         options: CarouselOptions(
           height: 227.85,

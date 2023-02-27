@@ -4,6 +4,10 @@
 
 import 'dart:convert';
 
+Article articleFromJson(String str) => Article.fromJson(json.decode(str));
+
+String articleToJson(Article data) => json.encode(data.toJson());
+
 BtcData btcDataFromJson(String str) => BtcData.fromJson(json.decode(str));
 
 String btcDataToJson(BtcData data) => json.encode(data.toJson());
