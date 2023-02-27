@@ -11,7 +11,9 @@ class SourceFeedCard extends StatefulWidget {
   Article article;
   SourceFeedCard({required this.article});
 
-  @override
+  @override 
+
+
   State<SourceFeedCard> createState() => _SourceFeedCardState();
 }
 
@@ -79,7 +81,7 @@ class _SourceFeedCardState extends State<SourceFeedCard> {
         ],
       ),
     );
-  }
+  }//
 
   Widget feedResourceTextBuild(String feedResource) {
     return Row(
